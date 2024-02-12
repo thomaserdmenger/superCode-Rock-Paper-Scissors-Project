@@ -28,6 +28,19 @@ const renderResult = (
   document.querySelector('.results').innerHTML = result;
 };
 
+// ! Render Final Winner
+const renderFinalWinner = () => {
+  let finalWinner;
+
+  if (userPoints === 5) {
+    finalWinner = `<h3 class="green">You are the final winner 🥳</h3>`;
+  } else if (cpuPoints === 5) {
+    finalWinner = `<h3 class="red">CPU is the final winner 🫣</h3>`;
+  }
+
+  document.querySelector('.weapons').innerHTML = finalWinner;
+};
+
 // ! Get Random Nummer between 1-3
 const randomCPUAction = () => {
   const randomNumber = Math.ceil(Math.random() * 3);
@@ -77,6 +90,10 @@ const getWinner = (event) => {
     finalResult = winner;
     userPoints += 1;
     rounds += 1;
+  }
+
+  if (userPoints === 5 || cpuPoints === 5) {
+    renderFinalWinner();
   }
 
   renderResult(

@@ -37,6 +37,10 @@ h2 {
   margin-block-end: 2rem;
 }
 
+h3 {
+  font-size: 2rem;
+}
+
 .weapons {
   display: flex;
   gap: 4rem;
@@ -69,4 +73,12 @@ input[type='button']:hover {
   text-align: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
