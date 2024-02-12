@@ -8,13 +8,21 @@ const resultsContainer = document.querySelector('.results');
 reloadBtn.addEventListener('click', () => window.location.reload());
 
 // ! Render Result
-const renderResult = (userResult, computerResult, finalResult) => {
+const renderResult = (
+  userResult,
+  computerResult,
+  finalResult,
+  computerPoints,
+  cpuPoints,
+  rounds
+) => {
   document.querySelector('.results').innerHTML = '';
 
   const result = `
     <p>You choose: ${userResult}</p>
     <p>CPU choose: ${computerResult}</p>
-    <p>Final Result: ${finalResult}</p>
+    <p>Final result: ${finalResult}</p>
+    <p>Your points: ${computerPoints} | CPUs points: ${cpuPoints} | Rounds: ${rounds}</p>
   `;
 
   document.querySelector('.results').innerHTML = result;
@@ -30,6 +38,10 @@ const randomCPUAction = () => {
 };
 
 // ! Get the Winner
+let userPoints = 0;
+let cpuPoints = 0;
+let rounds = 0;
+
 const getWinner = (event) => {
   const userChoise = event.target.id;
   const computerChoice = randomCPUAction();
@@ -40,21 +52,41 @@ const getWinner = (event) => {
 
   if (userChoise === computerChoice) {
     finalResult = draw;
+    rounds += 1;
   } else if (userChoise === 'rock' && computerChoice === 'paper') {
     finalResult = looser;
+    cpuPoints += 1;
+    rounds += 1;
   } else if (userChoise === 'rock' && computerChoice === 'scissors') {
     finalResult = winner;
+    userPoints += 1;
+    rounds += 1;
   } else if (userChoise === 'paper' && computerChoice === 'rock') {
     finalResult = winner;
+    userPoints += 1;
+    rounds += 1;
   } else if (userChoise === 'paper' && computerChoice === 'scissors') {
     finalResult = looser;
+    cpuPoints += 1;
+    rounds += 1;
   } else if (userChoise === 'scissors' && computerChoice === 'rock') {
     finalResult = looser;
+    cpuPoints += 1;
+    rounds += 1;
   } else if (userChoise === 'scissors' && computerChoice === 'paper') {
     finalResult = winner;
+    userPoints += 1;
+    rounds += 1;
   }
 
-  renderResult(userChoise, computerChoice, finalResult);
+  renderResult(
+    userChoise,
+    computerChoice,
+    finalResult,
+    userPoints,
+    cpuPoints,
+    rounds
+  );
 };
 
 // ! Event Listener Functions
