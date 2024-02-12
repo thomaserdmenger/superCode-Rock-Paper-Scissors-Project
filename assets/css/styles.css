@@ -1,0 +1,38 @@
+:root {
+  --color-fonts: #e0e1dd;
+  --color-background: #1b263b;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url(../fonts/Inter.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+html {
+  font-family: Inter;
+}
+
+.wrapper {
+  color: var(--color-fonts);
+  background-color: var(--color-background);
+  padding-block-start: 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+h2 {
+  margin-block-end: 2rem;
+}
