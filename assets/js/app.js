@@ -7,6 +7,15 @@ const resultsContainer = document.querySelector('.results');
 // ! Reload Webpage
 reloadBtn.addEventListener('click', () => window.location.reload());
 
+// ! Texte
+const resultsText = {
+  winner: 'You are the winner 🥳',
+  looser: 'The computer wins 😩',
+  draw: 'Draw! But you are the winner of hearts 💖',
+  finalWinnerText: 'You are the final winner 🥳',
+  finalLooserText: 'CPU is the final winner 🫣',
+};
+
 // ! Render Result
 const renderResult = (
   userResult,
@@ -30,12 +39,13 @@ const renderResult = (
 
 // ! Render Final Winner
 const renderFinalWinner = () => {
+  const { finalWinnerText, finalLooserText } = resultsText;
   let finalWinner;
 
   if (userPoints === 5) {
-    finalWinner = `<h3 class="green">You are the final winner 🥳</h3>`;
+    finalWinner = `<h3 class="green">${finalWinnerText}</h3>`;
   } else if (cpuPoints === 5) {
-    finalWinner = `<h3 class="red">CPU is the final winner 🫣</h3>`;
+    finalWinner = `<h3 class="red">${finalLooserText}</h3>`;
   }
 
   document.querySelector('.weapons').innerHTML = finalWinner;
@@ -58,9 +68,7 @@ let rounds = 0;
 const getWinner = (event) => {
   const userChoise = event.target.id;
   const computerChoice = randomCPUAction();
-  const winner = 'You are the winner 🥳';
-  const looser = 'The computer wins 😩';
-  const draw = 'Draw! But you are the winner of hearts 💖';
+  const { winner, looser, draw } = resultsText;
   let finalResult;
 
   if (userChoise === computerChoice) {
