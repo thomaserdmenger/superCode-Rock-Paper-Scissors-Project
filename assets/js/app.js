@@ -66,27 +66,19 @@ const getWinner = (event) => {
   if (userChoise === computerChoice) {
     finalResult = draw;
     rounds += 1;
-  } else if (userChoise === 'rock' && computerChoice === 'paper') {
+  } else if (
+    (userChoise === 'rock' && computerChoice === 'paper') ||
+    (userChoise === 'paper' && computerChoice === 'scissors') ||
+    (userChoise === 'scissors' && computerChoice === 'rock')
+  ) {
     finalResult = looser;
     cpuPoints += 1;
     rounds += 1;
-  } else if (userChoise === 'rock' && computerChoice === 'scissors') {
-    finalResult = winner;
-    userPoints += 1;
-    rounds += 1;
-  } else if (userChoise === 'paper' && computerChoice === 'rock') {
-    finalResult = winner;
-    userPoints += 1;
-    rounds += 1;
-  } else if (userChoise === 'paper' && computerChoice === 'scissors') {
-    finalResult = looser;
-    cpuPoints += 1;
-    rounds += 1;
-  } else if (userChoise === 'scissors' && computerChoice === 'rock') {
-    finalResult = looser;
-    cpuPoints += 1;
-    rounds += 1;
-  } else if (userChoise === 'scissors' && computerChoice === 'paper') {
+  } else if (
+    (userChoise === 'rock' && computerChoice === 'scissors') ||
+    (userChoise === 'paper' && computerChoice === 'rock') ||
+    (userChoise === 'scissors' && computerChoice === 'paper')
+  ) {
     finalResult = winner;
     userPoints += 1;
     rounds += 1;
