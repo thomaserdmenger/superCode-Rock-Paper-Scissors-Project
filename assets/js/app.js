@@ -21,7 +21,7 @@ const renderResult = (
   const result = `
     <p>You choose: ${userResult}</p>
     <p>CPU choose: ${computerResult}</p>
-    <p>Final result: ${finalResult}</p>
+    <p>Result: ${finalResult}</p>
     <p>Your points: ${computerPoints} | CPUs points: ${cpuPoints} | Rounds: ${rounds}</p>
   `;
 
