@@ -13,7 +13,7 @@ const renderResult = (userResult, computerResult, finalResult) => {
 
   const result = `
     <p>You choose: ${userResult}</p>
-    <p>CPU chosse: ${computerResult}</p>
+    <p>CPU choose: ${computerResult}</p>
     <p>Final Result: ${finalResult}</p>
   `;
 
